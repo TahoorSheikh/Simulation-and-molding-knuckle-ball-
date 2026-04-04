@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knuckleball Simulation</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js" defer></script>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<h1>Knuckleball Pitch Simulation</h1>
+
+<div id="wrap">
+  <canvas id="cvs"></canvas>
+  <div id="panel">
+    <div class="panel-title">Pitch Parameters</div>
+    <div class="divider"></div>
+
+    <div class="slider-row">
+      <label>Speed v&#8320; (mph)</label>
+      <div class="row2">
+        <input type="range" id="s_v0" min="55" max="75" value="65" step="1">
+        <span class="val" id="d_v0">65</span>
+      </div>
+    </div>
+
+    <div class="slider-row">
+      <label>Elevation &#952; (deg)</label>
+      <div class="row2">
+        <input type="range" id="s_theta" min="1" max="8" value="4" step="0.5">
+        <span class="val" id="d_theta">4.0&#176;</span>
+      </div>
+    </div>
+
+    <div class="slider-row">
+      <label>Spin rate &#969; (rpm)</label>
+      <div class="row2">
+        <input type="range" id="s_omega" min="5" max="60" value="20" step="1">
+        <span class="val" id="d_omega">20</span>
+      </div>
+    </div>
+
+    <div class="slider-row">
+      <label>Init angle &#966;&#8320; (deg)</label>
+      <div class="row2">
+        <input type="range" id="s_phi0" min="0" max="67.5" value="0" step="22.5">
+        <span class="val" id="d_phi0">0&#176;</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="slab">x-break</div><div class="sval" id="st_x">&#8212;</div></div>
+      <div class="stat"><div class="slab">z-drop</div><div class="sval" id="st_z">&#8212;</div></div>
+      <div class="stat"><div class="slab">flight</div><div class="sval" id="st_t">&#8212;</div></div>
+      <div class="stat"><div class="slab">plate spd</div><div class="sval" id="st_v">&#8212;</div></div>
+    </div>
+
+    <div id="status">Adjust sliders and throw</div>
+    <button id="throwBtn">&#9654; Throw pitch</button>
+  </div>
+</div>
+
+<footer>Physics: Giordano / Watts &amp; Sawyer lateral force model &mdash; RK4 integration &mdash; h = 1&times;10&#8315;&#8308;</footer>
+
+</body>
+</html>
